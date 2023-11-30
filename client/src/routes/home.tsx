@@ -5,8 +5,8 @@ export default function HomePage() {
   return (
     <Layout>
       <Hero
-        title="Search Country by Name"
-        content="enter a name, doesnt have to be exact"
+        title="Country Information"
+        content="Search by country name, it doesnt have to be exact"
       />
     </Layout>
   )

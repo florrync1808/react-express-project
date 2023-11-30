@@ -26,6 +26,7 @@ module.exports = {
       white: '#ffffff',
       gray: colors.slate,
       primary: colors.indigo,
+      error: colors.rose,
       tertiary: colors.emerald,
     },
   },

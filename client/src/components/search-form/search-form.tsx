@@ -24,9 +24,13 @@ function SearchForm({
       fetch('http://localhost:8000/api?query=' + searchInput, {
       }).then((response) => response.json())
         .then((data) => {
-          console.log(typeof (data))
-          setBackendData(data['countries'])
-          setErrorMsg(false)
+          console.log(typeof (data));
+          if (Array.isArray(data['countries']) && data['countries'].length === 0) {
+            setErrorMsg(true);
+          } else {
+            setBackendData(data['countries']);
+            setErrorMsg(false);
+          }
         })
         .catch(error => console.error(error));
     } catch (error) {
@@ -42,7 +46,6 @@ function SearchForm({
 
   return (
     <div>
-
       <div className="m-20">
         <form
           onSubmit={handleSubmit}
@@ -62,7 +65,7 @@ function SearchForm({
               className="w-full rounded-sm border border-gray-300  px-4 py-3 text-sm text-gray-500 shadow-none"
             />
             {errorMsg ? (
-              <div className="mt-2 text-xs italic text-gray-500 ">Result Not Found</div>
+              <div className="ml-8 mt-2 text-xs italic text-error-500 ">Result Not Found</div>
             ) : <div className="hidden"></div>}
           </div>
 
@@ -81,7 +84,7 @@ function SearchForm({
       <div className="m-20">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+            <thead className="text-lg text-primary-900 uppercase bg-primary-300 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Common Name
@@ -99,8 +102,8 @@ function SearchForm({
             </thead>
             <tbody>
               {backendData.map((backendData) =>
-                <tr className="odd:bg-white even:bg-gray-200 ">
-                  <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                <tr className="odd:bg-white even:bg-primary-50">
+                  <th scope="row" className="text-md px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                     {backendData[1]}
                   </th>
                   <td className="px-6 py-4">
@@ -117,7 +120,8 @@ function SearchForm({
           </table>
         </div>
       </div>
-    </div>
+
+    </div> 
 
   )
 }

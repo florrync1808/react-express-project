@@ -7,10 +7,6 @@ const https = require('https');
 const app = express()
 app.use(cors());
 
-// app.post("/search", (req,res) => {
-
-// })
-
 app.get("/api", (req, response) => {
     console.log(req.query.query.length)
 
@@ -27,7 +23,6 @@ app.get("/api", (req, response) => {
                 res.on('end', () => {
                     console.log('Response ended: ');
                     countries = JSON.parse(Buffer.concat(data).toString());
-                    // console.log(countries)
                     responseData = []
                     key = 0
                     for (country of countries) {
@@ -36,8 +31,6 @@ app.get("/api", (req, response) => {
                         key++
                     }
                     response.json({ "countries": responseData })
-                    // http://localhost:8000/api?query=mala
-                    // {"countries":[[0,["Guatemala City"],"Americas","Central America"],[1,["Lilongwe"],"Africa","Eastern Africa"],[2,["Kuala Lumpur"],"Asia","South-Eastern Asia"]]}
                 });
             } else {
                 response.json({ "countries": [] })
@@ -49,7 +42,6 @@ app.get("/api", (req, response) => {
     } else {
         response.json({ "info": ['Need more query!'], "info2": ['2Need more query!'] })
     }
-
 })
 
 app.listen(PORT, () => {

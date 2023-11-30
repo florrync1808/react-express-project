@@ -47,9 +47,8 @@ function Hero({
 
   return (
     <section className={cn('text-center lg:w-full lg:py-20 lg:text-left', className)}>
-      <div className="hero mx-auto w-full max-w-6xl px-6">
-        <div className="hero-inner relative lg:flex">
-          <div className="hero-copy pb-16 pt-10 lg:min-w-[40rem] lg:pr-20 lg:pt-16">
+      <div className="mx-auto w-full max-w-6xl px-6">
+          <div className="pb-16 pt-10 w-full lg:pr-20 lg:pt-16">
             <div className="mx-auto w-full max-w-3xl">
               <h1 className="mb-4 mt-0 text-4xl font-bold md:text-5xl " ref={addToScrollRevealRef}>
                 {title}
@@ -67,8 +66,6 @@ function Hero({
               />
             </div>
           </div>
-
-        </div>
       </div>
     </section>
   )

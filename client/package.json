@@ -1,18 +1,4 @@
 {
-  "version": "4.0.0",
-  "name": "holly-react",
-  "description": "React version of Holly",
-  "author": "Luke McDonald (https://lukemcdonald.com/)",
-  "homepage": "https://lukemcdonald.github.io/holly-react",
-  "keywords": [],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lukemcdonald/holly-react.git"
-  },
-  "bugs": {
-    "url": "https://github.com/lukemcdonald/holly-react/issues"
-  },
   "scripts": {
     "build": "NODE_ENV=production run-s build:*",
     "build:css": "postcss styles/tailwind.css -o src/assets/styles.css",

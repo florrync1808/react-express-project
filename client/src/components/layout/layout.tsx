@@ -12,7 +12,7 @@ function Layout({
   return (
     <div
       className={cn(
-        'relative mx-auto my-0 flex min-h-screen max-w-screen-2xl flex-col overflow-hidden bg-white shadow-2xl',
+        'relative mx-auto my-0 flex min-h-screen max-w-screen-2xl flex-col overflow-hidden bg-blue-200 shadow-2xl',
         className,
       )}
     >

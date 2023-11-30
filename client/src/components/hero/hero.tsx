@@ -1,6 +1,5 @@
 import { SearchForm } from '@/components/search-form'
 import { cn } from '@/utils/cn'
-import type { ReactNode } from 'react'
 import { useEffect, useRef } from 'react'
 import ScrollReveal from 'scrollreveal'
 

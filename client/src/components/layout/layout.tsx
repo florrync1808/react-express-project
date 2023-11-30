@@ -1,3 +1,4 @@
+import { GlobeIcon } from '@/components/icon'
 import type { PropsWithChildren } from 'react'
 
 import { Footer } from '@/components/footer'
@@ -16,7 +17,7 @@ function Layout({
         className,
       )}
     >
-
+      <GlobeIcon />
       <main className="flex-shrink-0 flex-grow items-center lg:flex">{children}</main>
       <Footer />
     </div>

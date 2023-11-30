@@ -17,18 +17,11 @@ const GlobeComponent: React.FC = () => {
   }, []);
 
   const globeStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: '40px',
-    right: '60px',
-    width: '300px', // Adjust the size as needed
-    height: '300px', // Adjust the size as needed
     transform: `rotate(${scrollRotation}deg)`, // Apply rotation based on scroll
-    transition: 'transform 0.3s ease-out', // Add transition for smoother effect
-  };
-
-
+    transition: 'transform 0.3s ease-out', 
+  }
   return (
-    <div style={globeStyle}>
+    <div className="-top-8 -right-12 w-48 fixed"  style={globeStyle}>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" >
   <circle cx="255.999" cy="255.998" r="255.998" fill="#C7D2FE"/>
   <path d="M511.999 256.002C511.999 114.618 397.384.001 256.001 0v512c141.384-.001 255.998-114.615 255.998-255.998z" fill="#3730a3"/>

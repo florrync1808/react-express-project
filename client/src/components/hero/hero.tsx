@@ -52,7 +52,7 @@ function Hero({
               <h1 className="mb-4 mt-0 text-4xl font-bold md:text-5xl " ref={addToScrollRevealRef}>
                 {title}
               </h1>
-              <p className="prose prose-xl m-auto text-gray-500" ref={addToScrollRevealRef}>
+              <p className="prose prose-xl m-auto text-gray-800" ref={addToScrollRevealRef}>
                 {content}
               </p>
             </div>

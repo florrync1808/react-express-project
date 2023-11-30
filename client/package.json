@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "build": "NODE_ENV=production run-s build:*",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
     "build:css": "postcss styles/tailwind.css -o src/assets/styles.css",
     "build:vite": "vite build",
     "deploy": "gh-pages -d dist",
@@ -12,7 +14,6 @@
     "lint:fix": "eslint . --fix",
     "predeploy": "$npm_execpath run build",
     "preview": "vite preview",
-    "start": "$npm_execpath run dev",
     "typecheck": "tsc --noEmit",
     "validate": "run-p lint typecheck"
   },

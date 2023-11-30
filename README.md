@@ -10,10 +10,10 @@
 2. Run `npm install` to install dependencies.
 3. Start the client with `npm run dev`
 
-Runs the app in the development mode.
-Web is viewed via http://localhost:5173 
+After the server and client has been intitiated, web is viewed via http://localhost:5173 
 
 ## Demo link
+Hosted on [Render](render.com) on a free subscription. Speed might be a tad bit slow. Please be patient :)
 https://country-search-fe.onrender.com
 
 ## Screenshots 

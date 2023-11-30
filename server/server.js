@@ -12,7 +12,7 @@ app.get("/api", (req, response) => {
 
     if (req.query.query.length > 1) {
 
-        https.get('https://restcountries.com/v3.1/name/' + req.query.query, res => {
+        https.get('https://country-search-jc8q.onrender.com/' + req.query.query, res => {
             let data = [];
             console.log('Status Code:', res.statusCode);
 

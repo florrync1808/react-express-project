@@ -15,6 +15,7 @@ function SearchForm({
   const [errorMsg, setErrorMsg] = useState(false)
   const [backendData, setBackendData] = useState([{}])
   const [loading, setLoading] = useState(false)
+  const [resultFound, setResultFound] = useState(false)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -32,12 +33,15 @@ function SearchForm({
       console.log(typeof data);
       if (Array.isArray(data['countries']) && data['countries'].length === 0) {
         setErrorMsg(true);
+        setResultFound(false)
       } else {
         setBackendData(data['countries']);
         setErrorMsg(false);
+        setResultFound(true)
       }
     } catch (error) {
       setErrorMsg(true);
+      setResultFound(false)
       console.error('Search Error : ', error);
     } finally {
       setLoading(false); // Set loading back to false
@@ -86,49 +90,52 @@ function SearchForm({
         </form>
       </div>
 
-      <div className="m-20">
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-            <thead className="text-lg text-primary-900 uppercase bg-primary-300 ">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  Common Name
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Capital
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Region
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Timezone
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {backendData.map((backendData) =>
-                <tr className="odd:bg-white even:bg-primary-50">
-                  <th scope="row" className="text-md px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    {backendData[1]}
+      {resultFound && ( // Conditionally render the table based on resultFound state
+        <div className="m-20">
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+              <thead className="text-lg text-primary-900 uppercase bg-primary-300 ">
+                <tr>
+                  <th scope="col" className="px-6 py-3">
+                    Common Name
                   </th>
-                  <td className="px-6 py-4">
-                    {backendData[2]}
-                  </td>
-                  <td className="px-6 py-4">
-                    {backendData[3]}
-                  </td>
-                  <td className="px-6 py-4">
-                    {backendData[4]}
-                  </td>
-                </tr>)}
-            </tbody>
-          </table>
+                  <th scope="col" className="px-6 py-3">
+                    Capital
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Region
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Timezone
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {backendData.map((backendData, index) => (
+                  <tr
+                    key={index}
+                    className={
+                      index % 2 === 0 ? 'odd:bg-white' : 'even:bg-primary-50'
+                    }
+                  >
+                    <th
+                      scope="row"
+                      className="text-md px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                    >
+                      {backendData[1]}
+                    </th>
+                    <td className="px-6 py-4">{backendData[2]}</td>
+                    <td className="px-6 py-4">{backendData[3]}</td>
+                    <td className="px-6 py-4">{backendData[4]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-
-    </div> 
-
-  )
+      )}
+    </div>
+  );
 }
 
-export default SearchForm
+export default SearchForm;

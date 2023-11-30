@@ -18,10 +18,6 @@ function SearchForm({
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    // const result = await onSubmit(searchInput)
-    // console.log(result)
-    // console.log(searchInput)
-
     setLoading(true); 
 
     try {
@@ -47,24 +43,6 @@ function SearchForm({
       setLoading(false); // Set loading back to false
       setSearchInput('');
     }
-    // try {
-    //   fetch('https://country-search-be.onrender.com/api?query=' + searchInput, {
-    //   }).then((response) => response.json())
-    //     .then((data) => {
-    //       console.log(typeof (data));
-    //       if (Array.isArray(data['countries']) && data['countries'].length === 0) {
-    //         setErrorMsg(true);
-    //       } else {
-    //         setBackendData(data['countries']);
-    //         setErrorMsg(false);
-    //       }
-    //     })
-    //     .catch(error => console.error(error));
-    // } catch (error) {
-    //   setErrorMsg(true)
-    //   console.error('Search Error : ', error)
-    // }
-    // setSearchInput('')
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {

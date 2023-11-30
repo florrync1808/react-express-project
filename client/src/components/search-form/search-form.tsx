@@ -21,7 +21,7 @@ function SearchForm({
     console.log(result)
     console.log(searchInput)
     try {
-      fetch('http://localhost:8000/api?query=' + searchInput, {
+      fetch('https://country-search-be.onrender.com/api?query=' + searchInput, {
       }).then((response) => response.json())
         .then((data) => {
           console.log(typeof (data));

@@ -1,13 +1,12 @@
 # Getting Started
 
-
 ## Server Side
-1. Open a terminal `cd server`.
+1. Open a terminal `cd server` to get into server directory.
 2. Run `npm install` to install dependencies.
 3. Start the client with `npm start`
 
 ## Client Side
-1. Open a terminal `cd client`.
+1. Open a terminal `cd client` to get into client front end directory.
 2. Run `npm install` to install dependencies.
 3. Start the client with `npm run dev`
 

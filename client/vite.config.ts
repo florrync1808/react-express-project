@@ -7,7 +7,7 @@ export default defineConfig({
   root: 'src',
   base: '/client/',
   build: {
-    outDir: '../dist',
+    outDir: '../build',
   },
   resolve: {
     alias: {

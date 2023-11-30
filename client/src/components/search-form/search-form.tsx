@@ -14,30 +14,57 @@ function SearchForm({
   const [searchInput, setSearchInput] = useState('')
   const [errorMsg, setErrorMsg] = useState(false)
   const [backendData, setBackendData] = useState([{}])
+  const [loading, setLoading] = useState(false)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const result = await onSubmit(searchInput)
-    console.log(result)
-    console.log(searchInput)
+    // const result = await onSubmit(searchInput)
+    // console.log(result)
+    // console.log(searchInput)
+
+    setLoading(true); 
+
     try {
-      fetch('https://country-search-be.onrender.com/api?query=' + searchInput, {
-      }).then((response) => response.json())
-        .then((data) => {
-          console.log(typeof (data));
-          if (Array.isArray(data['countries']) && data['countries'].length === 0) {
-            setErrorMsg(true);
-          } else {
-            setBackendData(data['countries']);
-            setErrorMsg(false);
-          }
-        })
-        .catch(error => console.error(error));
+      const result = await onSubmit(searchInput);
+      console.log(result);
+
+      const response = await fetch(
+        'https://country-search-be.onrender.com/api?query=' + searchInput
+      );
+      const data = await response.json();
+
+      console.log(typeof data);
+      if (Array.isArray(data['countries']) && data['countries'].length === 0) {
+        setErrorMsg(true);
+      } else {
+        setBackendData(data['countries']);
+        setErrorMsg(false);
+      }
     } catch (error) {
-      setErrorMsg(true)
-      console.error('Search Error : ', error)
+      setErrorMsg(true);
+      console.error('Search Error : ', error);
+    } finally {
+      setLoading(false); // Set loading back to false
+      setSearchInput('');
     }
-    setSearchInput('')
+    // try {
+    //   fetch('https://country-search-be.onrender.com/api?query=' + searchInput, {
+    //   }).then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(typeof (data));
+    //       if (Array.isArray(data['countries']) && data['countries'].length === 0) {
+    //         setErrorMsg(true);
+    //       } else {
+    //         setBackendData(data['countries']);
+    //         setErrorMsg(false);
+    //       }
+    //     })
+    //     .catch(error => console.error(error));
+    // } catch (error) {
+    //   setErrorMsg(true)
+    //   console.error('Search Error : ', error)
+    // }
+    // setSearchInput('')
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -75,7 +102,7 @@ function SearchForm({
           rounded-sm border-0 bg-gradient-to-r from-primary-500 to-primary-300 px-7 py-4 text-center font-medium leading-4 text-white no-underline shadow-lg"
               type="submit"
             >
-              {submitText}
+              {loading ? 'Loading...' : submitText}
             </button>
           </div>
         </form>

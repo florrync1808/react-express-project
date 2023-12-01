@@ -1667,3 +1667,11 @@ select {
     text-align: left;
   }
 }
+@media (min-width: 1280px) {
+  .xl\:h-80 {
+    height: 20rem;
+  }
+  .xl\:w-80 {
+    width: 20rem;
+  }
+}

@@ -21,7 +21,7 @@ const GlobeComponent: React.FC = () => {
     transition: 'transform 0.3s ease-out', 
   }
   return (
-    <div className="-top-8 -right-12 w-48 fixed lg:top-8 lg:right-8 lg:w-64 lg:h-64"  style={globeStyle}>
+    <div className="-top-8 -right-12 w-48 fixed lg:top-8 lg:right-8 lg:w-64 lg:h-64 xl:h-80 xl:w-80"  style={globeStyle}>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" >
   <circle cx="255.999" cy="255.998" r="255.998" fill="#C7D2FE"/>
   <path d="M511.999 256.002C511.999 114.618 397.384.001 256.001 0v512c141.384-.001 255.998-114.615 255.998-255.998z" fill="#3730a3"/>

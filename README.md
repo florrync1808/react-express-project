@@ -26,3 +26,6 @@ https://country-search-fe.onrender.com
 3. Search results not found
 <img width="1212" alt="image" src="https://github.com/florrync1808/react-express-project/assets/112406006/eeea5a93-382b-4b35-b517-43e4f213b5ed">
 
+## Credits
+Front end clone and modified from Holly Template by Luke McDonald
+https://github.com/lukemcdonald/holly-react/tree/8f255e6da3f08c4617b3e9005fb8a0069bb193cc/src
